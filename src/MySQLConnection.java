@@ -19,6 +19,11 @@ public class MySQLConnection {
     }
 
     public static void main(String[] args) {
-        getConnection();
+        Connection c = getConnection();
+        try {
+            c.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
